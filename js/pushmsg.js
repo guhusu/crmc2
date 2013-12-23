@@ -1,21 +1,16 @@
 if(localStorage["is_reg_push"]==undefined || localStorage["is_reg_push"]==''){
-	localStorage["is_reg_push"]=false;
+	localStorage["is_reg_push"]=false;//是否已在google play或apple store 註冊
 }
 if(localStorage["not_read_count"]==undefined || localStorage["not_read_count"]==''){
-	localStorage["not_read_count"]=0;
+	localStorage["not_read_count"]=0;//未讀的數量
 }
-if(localStorage['pushmsg_data']==undefined) localStorage['pushmsg_data']='';
-if(localStorage['pushmsg_tmp']==undefined) localStorage['pushmsg_tmp']='';
+if(localStorage['pushmsg_data']==undefined) localStorage['pushmsg_data']='';//已儲存
+if(localStorage['pushmsg_tmp']==undefined) localStorage['pushmsg_tmp']='';//末顯示儲存的
 if(localStorage['pushmsg_bugnum']==undefined) localStorage['pushmsg_bugnum']='';
 
-var cid="";
-var pid="";
+var cid="21";
+var pid="167";
 var pushNotification;
-
-//可以開始使用cordova 
-function DR() {
-	  push_start();
-}
 
 //推播設定開始
 function push_start()
@@ -74,7 +69,7 @@ function onNotificationGCM(e) {
 		case 'registered':
 			if ( e.regid.length > 0 )
 			{
-				var url="http://rain.geekers.tw/sendpush/reice_regid";
+				var url="http://www.app4u.tw/sendpush/reice_regid";
 				$.post(url,{regid:e.regid,cid:cid,pid:pid},function(data){
 					if(data.status=='y' || data.status=='n3'){
 						localStorage["is_reg_push"]=true;
@@ -92,12 +87,12 @@ function onNotificationGCM(e) {
 				//alert('fg');
 				// if the notification contains a soundname, play it.
 				if(msg!=localStorage['pushmsg_bugnum']){
-					var aid = $.mobile.activePage.attr("id");
+					var aid = RMC._NOWID//$.mobile.activePage.attr("id");
 					//alert(aid);
 					if(aid=='pushmsg'){
 						//直撫更新資料
 						$('#pushmsgul').prepend(msg);//alert(msg);
-						$('#pushmsgul').listview('refresh');
+						//$('#pushmsgul').listview('refresh');
 						//寫入暫存
 						localStorage['pushmsg_data']=$('#pushmsgcc').html();
 						//alert('o
@@ -107,7 +102,7 @@ function onNotificationGCM(e) {
 						localStorage['pushmsg_tmp']=msg+localStorage['pushmsg_tmp'];
 						localStorage["not_read_count"]++;
 						
-						if(aid=='page1'){
+						if(aid=='main'){
 							$('#pushmsgcount').html(localStorage["not_read_count"]);
 							$('#pushmsgcount').css('display','');
 						}

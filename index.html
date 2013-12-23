@@ -55,6 +55,7 @@
 <script type="text/javascript" charset="utf-8" src="js/iscroll.js"></script>
 <script type="text/javascript" charset="utf-8" src="js/jquery.pep.js"></script>
 <script type="text/javascript" charset="utf-8" src="js/rmc2.js"></script>
+<script type="text/javascript" charset="utf-8" src="js/pushmsg.js"></script>
 <script type="text/javascript" charset="utf-8">
 
 $(function(){
@@ -64,14 +65,25 @@ $(function(){
 	/*$('#vvssdd').pep({
 		constrainTo:'parent'
 	});*/
+	//$('#vvball').pep({constrainTo:'parent'});
+	///alert($('#ind').outerHeight(true));
 });
 
 RMC.add_evnet('show','main','setv');
 function setv()
 {
-	$('#dragv').pep({
-		  axis: 'x'
-	});	
+	/*$('#dragv').pep({
+		//constrainTo:[RMC.SW, false, RMC._SH, false],
+		  //constrainTo: 'window',//[RMC.SW, false, RMC._SH, false],
+		  constrainTo:'parent',
+		  //constrainTo:'#main',
+		  //axis: 'x',
+		  //useCSSTranslation: false 
+	});	*/
+	//var h=$('#main .header').outerHeight(true);
+	//var h2=$('#main .content').outerHeight(true);
+	//alert(RMC._SH+' -- '+h+' -- '+h2);
+	//$('#main .content').css('height','500px');
 }
 RMC.add_evnet('hidebefore','main','unsetv');
 function unsetv()
@@ -126,138 +138,6 @@ function unsetv()
 	
 }    
 
-.switch {
-	display:inline-block;
-	width:50px;
-	height:25px;
-	line-height:25px;
-	/*border:#00f solid 1px;*/
-	background-color:#fff;
-	padding:0px;
-	border-radius:25px;
-}
-/*.switch .ball {
-	
-} */
-.switch label {
-	width:50px;height:25px;
-	display:inline-block;
-	background:#0ff;
-	position:absolute;
-	opacity:0;
-	z-index:3;
-}
-.switch input {
-	position:absolute;
-	display:none;
-}
-.switch input + .ball {
-position:absolute;
-display:inline-block;
-	width:25px;
-	height:25px;
-	line-height:25px;
-	background:#ccc;
-	padding:0px;
-	margin:0px;
-	border-radius:25px;
-}
-.switch input:checked + .ball {
-	position:absolute;
-	display:inline-block;
-	width:25px;
-	height:25px;
-	line-height:25px;
-	background:#8f0222;
-	padding:0px;
-	margin:0px;
-	border-radius:25px;
-	left:25px;
-	box-shadow:0px 0px 3px #6d0019;
-}
-.radio {
-	
-}
-.radio input {
-	display:none;
-}
-.radio label {
-	display:inline-block;
-	margin:0px;
-	padding:5px 10px;
-	height:30px;
-	line-height:30px;
-	color:#000;
-	background: rgb(255,255,255); /* Old browsers */
-background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(229,229,229,1) 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(229,229,229,1))); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* IE10+ */
-background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* W3C */
-}
-.radio input:checked + label {
-	display:inline-block;
-	margin:0px;
-	padding:5px 10px;
-	height:30px;
-	line-height:30px;
-	color:#fff;
-	background: rgb(122,188,255); /* Old browsers */
-background: -moz-linear-gradient(top, rgba(122,188,255,1) 0%, rgba(96,171,248,1) 44%, rgba(64,150,238,1) 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(122,188,255,1)), color-stop(44%,rgba(96,171,248,1)), color-stop(100%,rgba(64,150,238,1))); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top, rgba(122,188,255,1) 0%,rgba(96,171,248,1) 44%,rgba(64,150,238,1) 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top, rgba(122,188,255,1) 0%,rgba(96,171,248,1) 44%,rgba(64,150,238,1) 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top, rgba(122,188,255,1) 0%,rgba(96,171,248,1) 44%,rgba(64,150,238,1) 100%); /* IE10+ */
-background: linear-gradient(to bottom, rgba(122,188,255,1) 0%,rgba(96,171,248,1) 44%,rgba(64,150,238,1) 100%); /* W3C */
-	box-shadow:inset 0px 0px 5px #4096ee;
-}
-
-.radio-list {
-	
-}
-.radio-list input {
-	display:none;
-}
-.radio-list label {
-	padding:5px 10px;
-	display:block;
-	height:30px;
-	line-height:30px;
-	background: rgb(255,255,255); /* Old browsers */
-background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(229,229,229,1) 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(229,229,229,1))); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* IE10+ */
-background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* W3C */
-} 
-.radio-list .sel {
-	display:inline-block;
-	width:20px;
-	height:20px;
-	border-radius:10px;
-	background:#ccc;
-}
-.radio-list .name {
-	color:#000;
-}
-.radio-list input:checked + label {
-	background: rgb(122,188,255); /* Old browsers */
-background: -moz-linear-gradient(top, rgba(122,188,255,1) 0%, rgba(96,171,248,1) 44%, rgba(64,150,238,1) 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(122,188,255,1)), color-stop(44%,rgba(96,171,248,1)), color-stop(100%,rgba(64,150,238,1))); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top, rgba(122,188,255,1) 0%,rgba(96,171,248,1) 44%,rgba(64,150,238,1) 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top, rgba(122,188,255,1) 0%,rgba(96,171,248,1) 44%,rgba(64,150,238,1) 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top, rgba(122,188,255,1) 0%,rgba(96,171,248,1) 44%,rgba(64,150,238,1) 100%); /* IE10+ */
-background: linear-gradient(to bottom, rgba(122,188,255,1) 0%,rgba(96,171,248,1) 44%,rgba(64,150,238,1) 100%); /* W3C */
-	box-shadow:inset 0px 0px 5px #4096ee;
-}
-.radio-list input:checked + label .sel {
-	background:#f00;
-}
-.radio-list input:checked + label .name {
-	color:#fff;
-}
 
 select {
 	width:100%;
@@ -289,21 +169,70 @@ select:after {
 	line-height:30px;
 	margin:0px;
 	padding:5px 10px;
-	background-color:#fff012;
+	
 	-webkit-border-radius:30px;
 	border-width:1px;
 	border-style:solid;
-	border-color#cccccc;
-	overflow: hidden;
-	position: static;
+	border-color:#cccccc;
+	/*overflow: hidden;
+	position: static;*/
+	background: rgb(204,212,0); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(204,212,0,1) 0%, rgba(179,184,0,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(204,212,0,1)), color-stop(100%,rgba(179,184,0,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(204,212,0,1) 0%,rgba(179,184,0,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(204,212,0,1) 0%,rgba(179,184,0,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(204,212,0,1) 0%,rgba(179,184,0,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom, rgba(204,212,0,1) 0%,rgba(179,184,0,1) 100%); /* W3C */
+	-webkit-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.8),
+		inset 0px 0px 3px rgba(224,224,224,1);
+	box-shadow:
+		0px 1px 3px rgba(000,000,000,0.8),
+		inset 0px 0px 3px rgba(224,224,224,1);
+}
+
+.range {
+	display:block;
+	width:200px;
+	height:30px;
+	border:#ccc solid 1px;
+	margin-left:30px;
+	vertical-align:middle;
+}
+.range .bar {
+	display:block;
+	width:100%;
+	height:5px;
+	background: rgb(204,212,0); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(204,212,0,1) 0%, rgba(179,184,0,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(204,212,0,1)), color-stop(100%,rgba(179,184,0,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(204,212,0,1) 0%,rgba(179,184,0,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(204,212,0,1) 0%,rgba(179,184,0,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(204,212,0,1) 0%,rgba(179,184,0,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom, rgba(204,212,0,1) 0%,rgba(179,184,0,1) 100%); /* W3C */
+}
+.range .moveball {
+	
+	width:30px;
+	height:30px;
+	background: rgb(64,150,238); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(64,150,238,1) 0%, rgba(64,150,238,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(64,150,238,1)), color-stop(100%,rgba(64,150,238,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(64,150,238,1) 0%,rgba(64,150,238,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(64,150,238,1) 0%,rgba(64,150,238,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(64,150,238,1) 0%,rgba(64,150,238,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom, rgba(64,150,238,1) 0%,rgba(64,150,238,1) 100%); /* W3C */
+	border-radius:30px;
 }
 </style>
 </head>
 <body>
-
 <div class="page" id="ind">
 <div class="header">測試主頁</div>
 <div class="content ccbg">
+<p>
+<span id="pushmsgcount"></span>
+</p>
 <span class="btn" tap="RMC.changepage('main');">main</span>
 <p>
 <a href="main.html">main.html</a>
@@ -311,6 +240,15 @@ select:after {
 <p>
 <a href="pep1.html">pep1.html</a>
 </p>
+<span class="range"><span class="moveball" id="vvball"></span><span class="bar"></span></span>
+<p>
+<a href="pep2.html">pep2.html</a>
+</p>
+
+<p>
+<a href="pep3.html">pep3.html</a>
+</p>
+
 <p>
 	<span class="switch"><label for="xx"></label><input type="checkbox" id="xx" value="1"  /><span class="ball"></span></span>
 </p>
@@ -340,6 +278,18 @@ select:after {
 
 
 </p>
+<p>
+<input type="text" class="rtext" value="" />
+</p>
+
+<p>
+<input type="text" class="rtext" value="" />
+</p>
+
+<p>
+<input type="text" class="rtext" value="" />
+</p>
+
 <p>
 <input type="text" class="rtext" value="" />
 </p>
@@ -377,11 +327,13 @@ select:after {
 </div>
 
 <div style="width:50px;height:50px;background:#ccc;" id="dragv">拖2</div-->
+<div style="border:#f00 solid 1px;height:600px;width:300px;">
 
-<div style="width:50px;height:50px;background:#ff0;z-index:1;" id="dragv"></div>
+</div>
+
 
 <div>
-
+asdasdf
 </div>
 
 <span class="btn" tap="RMC.changepage('t');">t.html</span>
@@ -449,6 +401,12 @@ select:after {
       <li><a href="#">Contact</a></li>
       <li><a href="#">Login</a></li>
    </ul><div class="clear"></div></div>
+</div>
+<div class="page" id="pushmsg">
+<div class="header">訊息通知</div>
+<div class="content" id="pushmsgcc">
+<ul id="pushmsgul"></ul>
+</div>
 </div>
 </body>
 </html>

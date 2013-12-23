@@ -22,6 +22,8 @@ var RMC={
 			RMC._SH=$(window).height();
 			var HP=false;//header position
 			var FP=false;//footer position
+			//$('body').css({'width':RMC._SW+'px','height':RMC._SH+'px',overflow:'hidden'});
+			//$('html').css({'width':RMC._SW+'px','height':RMC._SH+'px',overflow:'hidden'});
 			
 			var i=0;
 			var hash=window.location.hash;
@@ -39,18 +41,18 @@ var RMC={
 				var content=$(this).find('.content');
 				var header=$(this).find('.header');
 				var footer=$(this).find('.footer');
-				HP=header.attr('data-position');
+				//HP=header.attr('data-position');
 				if(header){
 					//$(this).find('.header').css('position','fixed');
 					//header.css('position','fixed');
 					//header.addClass("fixed");
 					//header.attr("class","header fixed");
-					HP=header.outerHeight(true);
+					HP=$(header).outerHeight(true);//alert('id='+this.id+' h='+HP);
 					CH -=HP;
 					//content.css('margin-top',HP+'px');
 					chf=true;
 				}
-				FP=footer.attr('data-position');
+				//FP=footer.attr('data-position');
 				if(footer){
 					FP=footer.outerHeight(true);
 					CH -=FP;

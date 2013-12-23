@@ -4,6 +4,7 @@ body {
 	font-size:20px;
 	line-height:40px;
 	-webkit-backface-visibility: hidden;
+	-webkit-overflow-scrolling: touch;
 }
 .page {
 	position:absolute;
@@ -31,6 +32,8 @@ background: -webkit-linear-gradient(top,  #45484d 0%,#000000 100%); /* Chrome10+
 background: -o-linear-gradient(top,  #45484d 0%,#000000 100%); /* Opera 11.10+ */
 background: -ms-linear-gradient(top,  #45484d 0%,#000000 100%); /* IE10+ */
 background: linear-gradient(to bottom,  #45484d 0%,#000000 100%); /* W3C */
+/*overflow: scroll;
+-webkit-overflow-scrolling: touch;*/
 }
 .header.nav {
 	line-height:30px;
@@ -60,8 +63,9 @@ background: linear-gradient(to bottom,  #45484d 0%,#000000 100%); /* W3C */
 	word-break:break-all;
 	width:100%;
 	/*height:100%;*/
-	overflow:auto;
+	/*overflow:hidden;*/
 	/*background:#fff;*/
+	-webkit-overflow-scrolling: touch;
 }
 .footer {
 	width:100%;
@@ -83,9 +87,10 @@ background: linear-gradient(to bottom,  #ccd400 0%,#b3b800 100%); /* W3C */
 	bottom:0px;
 }
 .display-none {
-	top:-2000px;
-	left:-2000px;
+	top:-9000px;
+	left:-9000px;
 	z-index:1;
+	/*display:hidden;*/
 }
 .page.display-hidden {
 	opacity:0;
@@ -633,6 +638,143 @@ background: linear-gradient(to bottom,  #ccd400 0%,#b3b800 100%); /* W3C */
 	border-radius:14px;
 	vertical-align:middle;
 }*/
+/* switch */
+.switch {
+	display:inline-block;
+	width:50px;
+	height:25px;
+	line-height:25px;
+	/*border:#00f solid 1px;*/
+	background-color:#fff;
+	padding:0px;
+	border-radius:25px;
+}
+/*.switch .ball {
+	
+} */
+.switch label {
+	width:50px;height:25px;
+	display:inline-block;
+	background:#0ff;
+	position:absolute;
+	opacity:0;
+	z-index:3;
+}
+.switch input {
+	position:absolute;
+	display:none;
+}
+.switch input + .ball {
+position:absolute;
+display:inline-block;
+	width:25px;
+	height:25px;
+	line-height:25px;
+	background:#ccc;
+	padding:0px;
+	margin:0px;
+	border-radius:25px;
+}
+.switch input:checked + .ball {
+	position:absolute;
+	display:inline-block;
+	width:25px;
+	height:25px;
+	line-height:25px;
+	background:#8f0222;
+	padding:0px;
+	margin:0px;
+	border-radius:25px;
+	left:25px;
+	box-shadow:0px 0px 3px #6d0019;
+}
+
+/* radio */
+.radio {
+	
+}
+.radio input {
+	display:none;
+}
+.radio label {
+	display:inline-block;
+	margin:0px;
+	padding:5px 10px;
+	height:30px;
+	line-height:30px;
+	color:#000;
+	background: rgb(255,255,255); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(229,229,229,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(229,229,229,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* W3C */
+}
+.radio input:checked + label {
+	display:inline-block;
+	margin:0px;
+	padding:5px 10px;
+	height:30px;
+	line-height:30px;
+	color:#fff;
+	background: rgb(122,188,255); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(122,188,255,1) 0%, rgba(96,171,248,1) 44%, rgba(64,150,238,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(122,188,255,1)), color-stop(44%,rgba(96,171,248,1)), color-stop(100%,rgba(64,150,238,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(122,188,255,1) 0%,rgba(96,171,248,1) 44%,rgba(64,150,238,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(122,188,255,1) 0%,rgba(96,171,248,1) 44%,rgba(64,150,238,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(122,188,255,1) 0%,rgba(96,171,248,1) 44%,rgba(64,150,238,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom, rgba(122,188,255,1) 0%,rgba(96,171,248,1) 44%,rgba(64,150,238,1) 100%); /* W3C */
+	box-shadow:inset 0px 0px 5px #4096ee;
+}
+
+/* radio list */
+.radio-list {
+	
+}
+.radio-list input {
+	display:none;
+}
+.radio-list label {
+	padding:5px 10px;
+	display:block;
+	height:30px;
+	line-height:30px;
+	background: rgb(255,255,255); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(229,229,229,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(229,229,229,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* W3C */
+} 
+.radio-list .sel {
+	display:inline-block;
+	width:20px;
+	height:20px;
+	border-radius:10px;
+	background:#ccc;
+}
+.radio-list .name {
+	color:#000;
+}
+.radio-list input:checked + label {
+	background: rgb(122,188,255); /* Old browsers */
+background: -moz-linear-gradient(top, rgba(122,188,255,1) 0%, rgba(96,171,248,1) 44%, rgba(64,150,238,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(122,188,255,1)), color-stop(44%,rgba(96,171,248,1)), color-stop(100%,rgba(64,150,238,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(122,188,255,1) 0%,rgba(96,171,248,1) 44%,rgba(64,150,238,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(122,188,255,1) 0%,rgba(96,171,248,1) 44%,rgba(64,150,238,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(122,188,255,1) 0%,rgba(96,171,248,1) 44%,rgba(64,150,238,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom, rgba(122,188,255,1) 0%,rgba(96,171,248,1) 44%,rgba(64,150,238,1) 100%); /* W3C */
+	box-shadow:inset 0px 0px 5px #4096ee;
+}
+.radio-list input:checked + label .sel {
+	background:#f00;
+}
+.radio-list input:checked + label .name {
+	color:#fff;
+}
+
 /*list view*/
 .listview {
 	display:block;
